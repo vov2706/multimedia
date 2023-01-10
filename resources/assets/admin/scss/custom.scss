@@ -1,0 +1,82 @@
+.tox-selected-menu .tox-collection__item {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+}
+
+// ~ margin
+.wm-mb-0,
+.wm-mt-0,
+.wm-ml-0,
+.wm-mr-0 {
+    margin-bottom: 0;
+}
+.wm-mb-10,
+.wm-mt-10,
+.wm-ml-10,
+.wm-mr-10 {
+    margin-bottom: 10px;
+}
+.wm-mb-20,
+.wm-mt-20,
+.wm-ml-20,
+.wm-mr-20 {
+    margin-bottom: 20px;
+}
+.wm-mx-0 {
+    margin-left: 0;
+    margin-right: 0;
+}
+.wm-my-0 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+// ~ padding
+.wm-pb-0,
+.wm-pt-0,
+.wm-pl-0,
+.wm-pr-0 {
+    padding-bottom: 0;
+}
+.wm-pb-10,
+.wm-pt-10,
+.wm-pl-10,
+.wm-pr-10 {
+    padding-bottom: 10px;
+}
+.wm-pb-20,
+.wm-pt-20,
+.wm-pl-20,
+.wm-pr-20 {
+    padding-bottom: 20px;
+}
+.wm-px-0 {
+    padding-left: 0;
+    padding-right: 0;
+}
+.wm-py-0 {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+// ~ line
+.wm-line-grey {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #efefef;
+    margin: 13px 0;
+}
+
+.wm-min-w-160 {
+    min-width: 160px;
+}
+
+table {
+    thead, tbody {
+        th, td {
+            vertical-align: inherit!important;
+            text-align: left;
+        }
+    }
+}

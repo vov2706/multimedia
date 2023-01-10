@@ -1,0 +1,42 @@
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
+
+textarea {
+	resize: none;
+}
+
+button {
+	outline: none;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+	outline: none;
+	i {
+		&:hover, &:active, &:focus {
+			outline: none;
+		}
+	}
+}
+
+body {
+    font-size: 0.9em;
+}
+
+a {
+    color: #444;
+    cursor: pointer;
+}
+
+.custom-control-label {
+    cursor: pointer;
+    &:before, &:after {
+        top: .20rem;
+    }
+}
