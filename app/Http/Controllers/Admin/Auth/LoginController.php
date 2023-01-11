@@ -26,9 +26,7 @@ class LoginController extends Controller
             'password' => 'required|min:6',
         ]);
 
-        dd(Auth::guard('admin')->attempt(['email' => $validated['email'], 'password' => $validated['password'], true]));
-
-        if (Auth::guard('admin')->attempt(['email' => $validated['email'], 'password' => $validated['password'], true])) {
+        if (Auth::guard('admin')->attempt(['email' => $validated['email'], 'password' => $validated['password']], true)) {
             $request->session()->regenerate();
 
             return redirect()->intended(route('admin.index'));
