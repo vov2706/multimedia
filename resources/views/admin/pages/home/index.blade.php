@@ -1,12 +1,7 @@
-@extends('layouts.admin')
+<x-layouts.admin.layout>
+    <x-slot name="title">Admin Panel</x-slot>
+    <x-slot name="description">Admin Panel</x-slot>
 
-@section('title', 'Admin Panel')
-@section('description', 'Admin Panel')
-
-@section('css')
-@endsection
-
-@section('content')
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
@@ -14,11 +9,7 @@
 
         <!-- Main content -->
         <section class="content container-fluid">
-            <h1>Yura LOH</h1>
         </section>
         <!-- /.content -->
     </div>
-@endsection
-
-@section('scripts')
-@endsection
+</x-layouts.admin.layout>
