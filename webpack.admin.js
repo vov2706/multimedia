@@ -9,7 +9,7 @@ module.exports = (mix) => {
 //     mix.sass('resources/assets/admin/scss/text-pages/index.scss', 'public/admin/css/text-pages.css');
     const copy = [
         // { from: './node_modules/admin-lte/dist/img', to: 'public/admin/img' },
-        // { from: './node_modules/tinymce', to: 'public/admin/plugins/tinymce' },
+        { from: './node_modules/tinymce', to: 'public/admin/plugins/tinymce' },
         { from: './node_modules/admin-lte/plugins/fontawesome-free/webfonts', to: 'public/admin/webfonts' },
     ];
     copy.map(path => {

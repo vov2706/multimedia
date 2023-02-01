@@ -10,5 +10,7 @@ Route::get('/logout/', [LoginController::class, 'logout'])->name('admin.logout')
 
 Route::group(['middleware' => ['auth:admin']], static function () {
 
-    Route::get('/', [IndexController::class, 'index'])->name('admin.index');
+    Route::get('/', [IndexController::class, 'index'])->name('index');
+
+//    Route::resource('virtual-viewer')->name('virtual-viewer');
 });
