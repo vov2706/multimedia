@@ -6,7 +6,9 @@
     <div class="sidebar">
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar nav-child-indent flex-column" data-widget="treeview">
-
+                <x-admin.sidebar-nav-link :href="route('admin.pages')" active="pages.*" icon-class="fas fa-file-word">
+                    Сторінки
+                </x-admin.sidebar-nav-link>
             </ul>
         </nav>
     </div>

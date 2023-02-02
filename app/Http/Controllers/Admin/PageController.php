@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Page;
 
 class PageController extends Controller
 {
@@ -11,7 +12,9 @@ class PageController extends Controller
      */
     public function index()
     {
-        return view('admin.pages.site-pages.index');
+        $items = Page::with('contents')->get();
+
+        return view('admin.pages.site-pages.index', compact('items'));
     }
 
     /**

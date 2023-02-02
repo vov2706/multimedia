@@ -37,7 +37,7 @@
                                             tabindex="-1"
                                             aria-hidden="true">
                                         @foreach($items as $item)
-                                            <option value="{{ $item->id }}" data-href="{{ route('pages.edit', [$item->id]) }}">{{ $item->name }}</option>
+                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
