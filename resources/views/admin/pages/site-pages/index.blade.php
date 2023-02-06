@@ -19,7 +19,7 @@
             <form
                     action=""
                     method="POST"
-                    class="select-form col-md-7 col-lg-7 col-xl-5"
+                    class="js--select-form col-md-7 col-lg-7 col-xl-5"
                     autocomplete="off">
                 <div class="card card-outline card-primary">
                     <div class="card-header">
@@ -37,7 +37,7 @@
                                             tabindex="-1"
                                             aria-hidden="true">
                                         @foreach($items as $item)
-                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                            <option value="{{ $item->url }}">{{ $item->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -56,4 +56,17 @@
         </section>
         <!-- /.content -->
     </div>
+    @push('scripts')
+        <script>
+            $(document).on('submit', 'form.js--select-form', function(e) {
+                e.preventDefault();
+
+                const slug = $("select[name=id] option:selected").val();
+
+                if (slug.length) {
+                    window.location = '/admin-panel/pages/' + slug + '/edit/';
+                }
+            });
+        </script>
+    @endpush
 </x-layouts.admin.layout>

@@ -45,4 +45,18 @@ class PageController extends Controller
     {
 
     }
+
+    public function edit(string $page)
+    {
+        $item = Page::query()->where('url', $page)->first();
+
+        if (! $item) {
+            return redirect(route('admin.pages.index'))
+                ->withErrors('Сторінку не знайдено');
+        }
+
+        $title = "Сторінка '{$item->name}'";
+
+        return view('admin.pages.site-pages.edit', compact('item', 'title'));
+    }
 }
