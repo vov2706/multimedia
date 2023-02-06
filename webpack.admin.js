@@ -6,9 +6,8 @@ module.exports = (mix) => {
 
     mix.js('resources/assets/admin/js/index.js', 'public/admin/js/index.js');
     mix.sass('resources/assets/admin/scss/index.scss', 'public/admin/css');
-//     mix.sass('resources/assets/admin/scss/text-pages/index.scss', 'public/admin/css/text-pages.css');
+
     const copy = [
-        // { from: './node_modules/admin-lte/dist/img', to: 'public/admin/img' },
         { from: './node_modules/tinymce', to: 'public/admin/plugins/tinymce' },
         { from: './node_modules/admin-lte/plugins/fontawesome-free/webfonts', to: 'public/admin/webfonts' },
     ];
@@ -21,7 +20,7 @@ module.exports = (mix) => {
         `./node_modules/js-cookie/dist/js.cookie.min.js`,
         `./node_modules/jquery-ui-dist/jquery-ui.min.js`,
         `./node_modules/admin-lte/dist/js/adminlte.min.js`,
-        // `./node_modules/select2/dist/js/select2.min.js`,
+        `./node_modules/select2/dist/js/select2.min.js`,
         `./node_modules/admin-lte/plugins/jquery-ui/jquery-ui.min.js`,
         `./node_modules/bootstrap/dist/js/bootstrap.min.js`,
     ], `public/admin/js/vendor.js`);

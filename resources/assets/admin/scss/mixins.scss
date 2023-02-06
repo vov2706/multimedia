@@ -1,0 +1,60 @@
+$lime: #88C027;
+$yellow: #FFF50;
+$black: #000000;
+$d-grey: #45484A;
+$lamantin: #A5A2B7;
+$grey: #C2C9CF;
+$m-grey: #EEF2F8;
+$l-grey: #F7F9FC ;
+$lime-gr: linear-gradient(107.05deg, #88C027 0.36%, #568800 99.68%);
+
+@mixin column($count, $margin) {
+    width: col($count, $margin);
+    &:nth-child(n) {
+        margin-right: $margin;
+    }
+    &:nth-child(#{$count}n) {
+        margin-right: 0;
+    }
+}
+
+@mixin widthGap($count, $gap, $gapRow: null){
+    @if $gapRow {
+        column-gap: $gap;
+        row-gap: $gapRow;
+    } @else {
+        gap: #{$gap};
+    }
+    &>*{
+        width: calc(100% / #{$count} - ((#{$gap} * (#{$count} - 1)) / #{$count}));
+    }
+}
+
+@function w($width, $window) {
+    @return ($width * 100vw) / $window;
+}
+
+@function col($count, $margin) {
+    @return calc(100% / #{$count} - ((#{$margin} * #{$count}) - #{$margin}) / #{$count});
+}
+
+@mixin min($width) {
+    @media screen and (min-width: #{$width}) {
+        @content;
+    }
+}
+
+@mixin max($width) {
+    @media screen and (max-width: #{$width}) {
+        @content;
+    }
+}
+
+@keyframes loading {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

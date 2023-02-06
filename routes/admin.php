@@ -11,7 +11,8 @@ Route::get('/logout/', [LoginController::class, 'logout'])->name('logout')->midd
 
 Route::group(['middleware' => ['auth:admin']], static function () {
 
-    Route::get('/', [IndexController::class, 'index'])->name('index');
+    Route::get('/', IndexController::class)->name('index');
 
-    Route::get('/pages/', [PageController::class, 'index'])->name('pages');
+    Route::resource('pages', PageController::class, ['trailingSlashExcept' => 'show'])
+        ->only('index', 'edit', 'update', 'destroy');
 });
