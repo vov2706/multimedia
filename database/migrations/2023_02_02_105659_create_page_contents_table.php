@@ -19,6 +19,7 @@ class CreatePageContentsTable extends Migration
             $table->string('lang',2)->index();
             $table->string('name')->collation('utf8mb4_unicode_ci')->nullable();
             $table->string('h1')->collation('utf8mb4_unicode_ci')->nullable();
+            $table->string('h2')->collation('utf8mb4_unicode_ci')->nullable();
             $table->string('title')->collation('utf8mb4_unicode_ci')->nullable();
             $table->string('description')->collation('utf8mb4_unicode_ci')->nullable();
             $table->longText('text')->collation('utf8mb4_unicode_ci')->nullable();
