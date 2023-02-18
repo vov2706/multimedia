@@ -21,4 +21,16 @@ class Page extends TemplateContentModel
     {
         return $this->hasMany(PageContent::class, 'page_id', 'id');
     }
+
+    public function getLocaleFields(): array
+    {
+        return [
+            'name',
+            'h1',
+            'h2',
+            'title',
+            'description',
+            'text',
+        ];
+    }
 }

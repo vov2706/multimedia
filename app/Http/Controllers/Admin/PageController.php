@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Actions\Admin\Page\StorePageData;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Page\UpdateRequest;
 use App\Models\Page;
 
 class PageController extends Controller
@@ -17,38 +19,9 @@ class PageController extends Controller
         return view('admin.pages.site-pages.index', compact('items'));
     }
 
-    /**
-     * Тема 'Облаштування віртуальної глядацької зони'
-     * 3D – модель персонажу, воїна-лігійця германських племен І ст. н.е.
-     */
-    public function virtualViewersZone()
+    public function edit(int $id)
     {
-
-    }
-
-    /**
-     * Розробка мультимедійної анімації для дітей.
-     * Мобільний 2D додаток-гра «Готські скарби» для платформі Android та iOS
-     */
-    public function multimediaAnimation()
-    {
-
-    }
-
-    /**
-     * Облаштування віртуальної студії готської культури.
-     * Мультимедійне відтворення вельбарських та черняхівських поселень готів (близько 190 р.),
-     * макети їх поселень. Стилізоване відтворення занять, будівель, побуту.
-     * Наочне відтворення способу життя. Віртуальна реконструкція
-     */
-    public function virtualReconstruction()
-    {
-
-    }
-
-    public function edit(string $page)
-    {
-        $item = Page::query()->where('url', $page)->first();
+        $item = Page::find($id);
 
         if (! $item) {
             return redirect(route('admin.pages.index'))
@@ -58,5 +31,24 @@ class PageController extends Controller
         $title = "Сторінка '{$item->name}'";
 
         return view('admin.pages.site-pages.edit', compact('item', 'title'));
+    }
+
+    public function update(UpdateRequest $request, Page $page): \Illuminate\Http\RedirectResponse
+    {
+        try {
+            (new StorePageData())->handle($page, $request->validated());
+
+            $request->session()->flash('message', 'Оновлено успішно!');
+        } catch (\RuntimeException $exception) {
+            return back()
+                ->withInput()
+                ->withErrors($exception->getMessage());
+        } catch (\Throwable $exception) {
+            return back()
+                ->withInput()
+                ->withErrors('Серверна помилка!');
+        }
+
+        return redirect(route('admin.pages.edit', [$page->id]));
     }
 }

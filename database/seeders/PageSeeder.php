@@ -21,8 +21,8 @@ class PageSeeder extends Seeder
         $urls = [
             'about',
             'virtual-viewers-zone',
-            '2d-game-android-and-ios',
-            'reproduction-gothic-work'
+            'gothic-treasures',
+            'virtual-studio'
         ];
 
         $names = [
@@ -46,7 +46,6 @@ class PageSeeder extends Seeder
                     'page_id' => $page->id,
                     'lang' => $locale,
                     'name' => $names[$index],
-                    'text' => null
                 ]);
             }
         }

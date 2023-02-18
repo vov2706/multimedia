@@ -158,6 +158,23 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
+                                                        <label class="font-weight-normal">h2 ({{ $lang }})</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    {{ $lang }}
+                                                                </div>
+                                                            </div>
+                                                            <input
+                                                                type="text"
+                                                                name="h2_{{ $lang }}"
+                                                                value='{{ old("h2_$lang", $item->h2 ?? '') }}'
+                                                                data-lang="{{ $lang }}"
+                                                                class="form-control font-weight-bold"
+                                                                placeholder="{{ $lang }}...">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
                                                         <label class="font-weight-normal">Title ({{ $lang }})</label>
                                                         <textarea
                                                                 class="form-control font-weight-bold"

@@ -37,7 +37,7 @@
                                             tabindex="-1"
                                             aria-hidden="true">
                                         @foreach($items as $item)
-                                            <option value="{{ $item->url }}">{{ $item->name }}</option>
+                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
