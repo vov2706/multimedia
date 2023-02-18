@@ -78,53 +78,7 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12 col-xl-12">
-                                <div class="card card-outline card-primary card-custom-tabs collapsed-card">
-                                    <div class="card-header cursor-pointer" data-card-widget="collapse">
-                                        <h3 class="card-title">
-                                            Текст
-                                        </h3>
-                                        <div class="card-tools">
-                                            <button type="button" class="btn btn-tool btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                                                <i class="fas fa-plus"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="card-body" style="display: none;">
-                                        <ul class="nav nav-tabs" role="tablist">
-                                            @foreach(config('app.locales') as $lang)
-                                                <li class="nav-item">
-                                                    <a class="nav-link @if($loop->first) active @endif"
-                                                       id="{{ $lang }}"
-                                                       data-toggle="pill"
-                                                       href="#content-{{ $lang }}"
-                                                       role="tab"
-                                                       aria-selected="true">
-                                                        {{ $lang }}
-                                                    </a>
-                                                </li>
-                                            @endforeach
-                                            <div class="tab-content overflow-auto col-12 p-0">
-                                                @foreach(config('app.locales') as $lang)
-                                                    @php set_locale($lang); @endphp
-                                                    <div class="tab-pane fade @if($loop->first) active show @endif"
-                                                         id="content-{{ $lang }}"
-                                                         role="tabpanel"
-                                                         aria-labelledby="{{ $lang }}"
-                                                    >
-                                                        <textarea class="tinymce" name="text_{{ $lang }}"
-                                                                  placeholder="{{ $lang }}...">{{ old("text_$lang", $item->text) }}</textarea>
-                                                    </div>
-                                                @endforeach
-                                                @php set_locale(config('app.locale')); @endphp
-                                            </div>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12 col-xl-12">
-                                <div class="card card-outline card-primary collapsed-card">
+                                <div class="card card-outline card-primary">
                                     <div class="card-header cursor-pointer" data-card-widget="collapse">
                                         <h3 class="card-title">
                                             Мета-теги
@@ -135,7 +89,7 @@
                                             </button>
                                         </div>
                                     </div>
-                                    <div class="card-body" style="display: none;">
+                                    <div class="card-body">
                                         <div class="row">
                                             @foreach(config('app.locales') as $lang)
                                                 @php set_locale($lang); @endphp
@@ -149,12 +103,12 @@
                                                                 </div>
                                                             </div>
                                                             <input
-                                                                    type="text"
-                                                                    name="h1_{{ $lang }}"
-                                                                    value='{{ old("h1_$lang", $item->h1 ?? '') }}'
-                                                                    data-lang="{{ $lang }}"
-                                                                    class="form-control font-weight-bold"
-                                                                    placeholder="{{ $lang }}...">
+                                                                type="text"
+                                                                name="h1_{{ $lang }}"
+                                                                value='{{ old("h1_$lang", $item->h1 ?? '') }}'
+                                                                data-lang="{{ $lang }}"
+                                                                class="form-control font-weight-bold"
+                                                                placeholder="{{ $lang }}...">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
@@ -177,19 +131,19 @@
                                                     <div class="form-group">
                                                         <label class="font-weight-normal">Title ({{ $lang }})</label>
                                                         <textarea
-                                                                class="form-control font-weight-bold"
-                                                                name="title_{{ $lang }}"
-                                                                rows="2"
-                                                                placeholder="{{ $lang }}..."
+                                                            class="form-control font-weight-bold"
+                                                            name="title_{{ $lang }}"
+                                                            rows="2"
+                                                            placeholder="{{ $lang }}..."
                                                         >{{ old("title_$lang", $item->title ?? '') }}</textarea>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="font-weight-normal">Description ({{ $lang }})</label>
                                                         <textarea
-                                                                class="form-control font-weight-bold"
-                                                                name="description_{{ $lang }}"
-                                                                rows="5"
-                                                                placeholder="{{ $lang }}...">{{ old("description_$lang", $item->description ?? '') }}</textarea>
+                                                            class="form-control font-weight-bold"
+                                                            name="description_{{ $lang }}"
+                                                            rows="5"
+                                                            placeholder="{{ $lang }}...">{{ old("description_$lang", $item->description ?? '') }}</textarea>
                                                     </div>
                                                 </div>
                                             @endforeach
@@ -197,6 +151,35 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-xl-12">
+                                @foreach(config('app.locales') as $lang)
+                                    @php set_locale($lang); @endphp
+                                    <div class="card card-outline card-primary card-custom-tabs">
+                                        <div class="card-header cursor-pointer" data-card-widget="collapse">
+                                            <h3 class="card-title">
+                                                Текст {{ $lang }}
+                                            </h3>
+                                            <div class="card-tools">
+                                                <button type="button" class="btn btn-tool btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="overflow-auto col-12 p-0">
+                                                <div class="fade active show"
+                                                     aria-labelledby="{{ $lang }}"
+                                                >
+                                                <textarea class="tinymce" name="text_{{ $lang }}"
+                                                          placeholder="{{ $lang }}...">{{ old("text_$lang", $item->text) }}</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                         <div class="row mt-4">
