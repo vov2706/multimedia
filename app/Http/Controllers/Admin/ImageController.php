@@ -24,6 +24,7 @@ class ImageController extends Controller
     public function store(Request $request)
     {
         $images = $request->get('text-images', []);
+        $removeImageIds = $request->get('delete_gallery', []);
         $page = Page::query()->where('url', self::URL)->first();
 
         if (! $page) {
@@ -37,9 +38,17 @@ class ImageController extends Controller
                     $page->addMediaFromBase64($image)
                         ->toMediaCollection('images');
                 }
-
-                $request->session()->flash('message', 'Оновлено успішно!');
             }
+
+            if (! empty($removeImageIds)) {
+                foreach ($removeImageIds as $id => $deleted) {
+                    if ($deleted) {
+                        $page->media->where('id', $id)->first()->delete();
+                    }
+                }
+            }
+
+            $request->session()->flash('message', 'Оновлено успішно!');
         } catch (\Throwable $exception) {
             return back()
                 ->withInput()
@@ -47,10 +56,5 @@ class ImageController extends Controller
         }
 
         return redirect(route('admin.images.index'));
-    }
-
-    public function destroy($id)
-    {
-        //
     }
 }

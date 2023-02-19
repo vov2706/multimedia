@@ -39,7 +39,7 @@
         "jquery": "^3.6.3",
         "js-cookie": "^3.0.1",
         "select2": "^4.0.13",
-        "tinymce": "^5.10.2"
+        "tinymce": "^5.10.2",
         "vue-slick-carousel": "^1.0.6"
     }
 }
