@@ -1,0 +1,28 @@
+.modal {
+    background: rgba(0,0,0,0.3);
+
+    .modal-title{
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .modal-dialog {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .close{
+        position: absolute;
+        right: 20px;
+        font-size: 21px;
+        font-weight: 700;
+        line-height: 1;
+        color: #000;
+        text-shadow: 0 1px 0 #fff;
+        filter: alpha(opacity=20);
+        opacity: .2;
+    }
+}

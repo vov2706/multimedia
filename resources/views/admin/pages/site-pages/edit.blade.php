@@ -6,7 +6,7 @@
         <x-admin.message></x-admin.message>
 
         <!-- Content Header (Page header) -->
-        <section class="content-header my-c">
+        <section class="content-header">
             <div class="container-fluid d-sm-flex justify-content-between align-items-center block-title">
                 <div class="d-inline">
                     <h1 class="mb-3">
