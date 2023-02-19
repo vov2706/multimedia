@@ -1,10 +1,9 @@
 <template>
   <div class="content">
     <VueSlickCarousel v-bind="settings">
-      <div class="slickslide"><img class="slideimage" src="http://placehold.it/1200x800" alt=""></div>
-      <div class="slickslide"><img class="slideimage"  src="http://placehold.it/1200x800" alt=""></div>
-      <div class="slickslide"><img class="slideimage"  src="http://placehold.it/1200x300" alt=""></div>
-      <div class="slickslide"><img class="slideimage"  src="https://i.imgur.com/WcHGTSP.jpeg" alt=""></div>
+      <div v-for="(image, index) in images" :key="index" class="slickslide">
+        <img class="slideimage" :src="image.url" alt="">
+      </div>
     </VueSlickCarousel>
   </div>
 </template>
@@ -18,6 +17,11 @@
   export default {
     data() {
       return {
+        images: [
+          {url: 'http://placehold.it/1200x800', alt: 'Image 1'},
+          {url: 'http://placehold.it/1200x800', alt: 'Image 2'},
+          {url: 'https://i.imgur.com/WcHGTSP.jpeg', alt: 'Image 3'},
+        ],
         settings: {
           "dots": true,
           "arrows": true,
@@ -49,7 +53,7 @@
 
     max-width: 1300px;
     max-height: 1200px;
-    background-color: palegreen;
+    background-color: greenyellow;
   }
    .slick-next:before {
      color: black !important;

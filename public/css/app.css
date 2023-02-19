@@ -1,6 +1,5 @@
-@charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Nunito);
- /*!
+@charset "UTF-8"; /*!
  * Bootstrap  v5.2.3 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
  * Copyright 2011-2022 Twitter, Inc.
@@ -10821,7 +10820,7 @@ textarea.form-control-lg {
   }
 }
 body {
-  background-color: whitesmoke;
+  background-image: url("/../background.jpg");
 }
 
 .navbar {

@@ -5343,6 +5343,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
+      images: [{
+        url: 'http://placehold.it/1200x800',
+        alt: 'Image 1'
+      }, {
+        url: 'http://placehold.it/1200x800',
+        alt: 'Image 2'
+      }, {
+        url: 'https://i.imgur.com/WcHGTSP.jpeg',
+        alt: 'Image 3'
+      }],
       settings: {
         "dots": true,
         "arrows": true,
@@ -5421,39 +5431,18 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "content"
-  }, [_c("VueSlickCarousel", _vm._b({}, "VueSlickCarousel", _vm.settings, false), [_c("div", {
-    staticClass: "slickslide"
-  }, [_c("img", {
-    staticClass: "slideimage",
-    attrs: {
-      src: "http://placehold.it/1200x800",
-      alt: ""
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "slickslide"
-  }, [_c("img", {
-    staticClass: "slideimage",
-    attrs: {
-      src: "http://placehold.it/1200x800",
-      alt: ""
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "slickslide"
-  }, [_c("img", {
-    staticClass: "slideimage",
-    attrs: {
-      src: "http://placehold.it/1200x300",
-      alt: ""
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "slickslide"
-  }, [_c("img", {
-    staticClass: "slideimage",
-    attrs: {
-      src: "https://i.imgur.com/WcHGTSP.jpeg",
-      alt: ""
-    }
-  })])])], 1);
+  }, [_c("VueSlickCarousel", _vm._b({}, "VueSlickCarousel", _vm.settings, false), _vm._l(_vm.images, function (image, index) {
+    return _c("div", {
+      key: index,
+      staticClass: "slickslide"
+    }, [_c("img", {
+      staticClass: "slideimage",
+      attrs: {
+        src: image.url,
+        alt: ""
+      }
+    })]);
+  }), 0)], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -18475,7 +18464,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.slideimage[data-v-91c6b83e] {\n  width: inherit;\n  margin: auto;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.content[data-v-91c6b83e] {\n  margin: auto;\n  padding: 40px;\n\n  max-width: 1300px;\n  max-height: 1200px;\n  background-color: palegreen;\n}\n.slick-next[data-v-91c6b83e]:before {\n   color: black !important;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.slideimage[data-v-91c6b83e] {\n  width: inherit;\n  margin: auto;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.content[data-v-91c6b83e] {\n  margin: auto;\n  padding: 40px;\n\n  max-width: 1300px;\n  max-height: 1200px;\n  background-color: white;\n}\n.slick-next[data-v-91c6b83e]:before {\n   color: black !important;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
