@@ -15,7 +15,6 @@
   <link rel="shortcut icon" href="{{ asset('images/logo/favicon.png') }}">
 </head>
 <body>
-
 <div id="app">
 </div>
 
