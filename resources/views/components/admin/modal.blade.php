@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h3 class="modal-title">Ви впевнені?</h3>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
@@ -11,7 +11,7 @@
                 {{ $text ?? 'Дану дію буде неможливо відмінити!' }}
             </div>
             <div class="modal-footer modal-footer--flex">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Відміна</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Відміна</button>
                 <button type="button" class="btn btn-danger" id="{{ $actionButton ?? 'js--success-modal' }}" data-id="{{ $model ?? '' }}">Так</button>
             </div>
         </div>
