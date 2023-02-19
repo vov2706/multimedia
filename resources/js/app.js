@@ -3,7 +3,7 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-
+import { NavbarPlugin, ButtonPlugin } from 'bootstrap-vue'
 require('./bootstrap');
 
 window.Vue = require('vue').default;
@@ -20,6 +20,9 @@ window.Vue = require('vue').default;
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('photos-component', require('./components/PhotosComponent.vue').default);
+Vue.use(NavbarPlugin)
+Vue.use(ButtonPlugin)
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
