@@ -2,10 +2,13 @@
 @import "~admin-lte/dist/css/adminlte.min.css";
 @import "~admin-lte/plugins/fontawesome-free/css/all.css";
 @import "~admin-lte/plugins/fontawesome-free/css/v4-shims.css";
+@import "~croppie/croppie.css";
 
 @import "reset";
 @import "main";
 @import "icons";
 @import "mixins";
 
+@import './components/modal';
+@import "./components/gallery";
 @import './components/message';

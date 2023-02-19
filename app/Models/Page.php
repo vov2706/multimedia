@@ -3,9 +3,13 @@
 namespace App\Models;
 
 use App\Classes\TemplateContentModel;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Page extends TemplateContentModel
+class Page extends TemplateContentModel implements HasMedia
 {
+    use InteractsWithMedia;
+
     protected $fillable = [
         'url',
         'active',
@@ -20,6 +24,11 @@ class Page extends TemplateContentModel
     public function contents(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(PageContent::class, 'page_id', 'id');
+    }
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('images');
     }
 
     public function getLocaleFields(): array

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\Auth\LoginController;
+use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\IndexController;
 use App\Http\Controllers\Admin\PageController;
 use Illuminate\Support\Facades\Route;
@@ -15,4 +16,6 @@ Route::group(['middleware' => ['auth:admin']], static function () {
 
     Route::resource('pages', PageController::class, ['trailingSlashExcept' => 'show'])
         ->only('index', 'edit', 'update', 'destroy');
+
+    Route::resource('images', ImageController::class, ['trailingSlashExcept' => 'show']);
 });
