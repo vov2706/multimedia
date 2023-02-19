@@ -26,6 +26,7 @@ class UpdateRequest extends FormRequest
             'description_en' => ['string', 'max:255', 'nullable'],
             'text_ua' => ['string', 'nullable'],
             'text_en' => ['string', 'nullable'],
+            'active' => ['nullable']
         ];
     }
 }

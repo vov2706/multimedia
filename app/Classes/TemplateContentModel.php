@@ -6,53 +6,33 @@ use Illuminate\Database\Eloquent\Model;
 
 class TemplateContentModel extends Model
 {
-    /**
-     * @return string
-     */
     public function getNameAttribute(): string
     {
-        $content = $this->contents->where('lang', get_locale())->first();
-
-        return ($content->name ?? '');
+        return optional($this->contents->where('lang', get_locale())->first())->name ?? '';
     }
 
-    /**
-     * @return string
-     */
     public function getH1Attribute(): string
     {
-        $content = $this->contents->where('lang', get_locale())->first();
-
-        return ($content->h1 ?? '');
+        return optional($this->contents->where('lang', get_locale())->first())->h1 ?? '';
     }
 
-    /**
-     * @return string
-     */
+    public function getH2Attribute(): string
+    {
+        return optional($this->contents->where('lang', get_locale())->first())->h2 ?? '';
+    }
+
     public function getTitleAttribute(): string
     {
-        $content = $this->contents->where('lang', get_locale())->first();
-
-        return ($content->title ?? '');
+        return optional($this->contents->where('lang', get_locale())->first())->title ?? '';
     }
 
-    /**
-     * @return string
-     */
     public function getDescriptionAttribute(): string
     {
-        $content = $this->contents->where('lang', get_locale())->first();
-
-        return ($content->description ?? '');
+        return optional($this->contents->where('lang', get_locale())->first())->description ?? '';
     }
 
-    /**
-     * @return string
-     */
     public function getTextAttribute(): string
     {
-        $content = $this->contents->where('lang', get_locale())->first();
-
-        return ($content->text ?? '');
+        return optional($this->contents->where('lang', get_locale())->first())->text ?? '';
     }
 }
