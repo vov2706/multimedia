@@ -15,8 +15,8 @@ class PageSeeder extends Seeder
      */
     public function run()
     {
-        Page::truncate();
-        PageContent::truncate();
+        Page::query()->truncate();
+        PageContent::query()->truncate();
 
         $urls = [
             'about',
@@ -33,7 +33,7 @@ class PageSeeder extends Seeder
         ];
 
         foreach ($urls as $url) {
-            Page::create([
+            Page::query()->create([
                 'url' => $url
             ]);
         }
@@ -42,7 +42,7 @@ class PageSeeder extends Seeder
             $allPages = Page::query()->whereIn('url', $urls)->get();
 
             foreach ($allPages as $index => $page) {
-                PageContent::create([
+                PageContent::query()->create([
                     'page_id' => $page->id,
                     'lang' => $locale,
                     'name' => $names[$index],

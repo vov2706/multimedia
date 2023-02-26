@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\IndexController;
 use App\Http\Controllers\Admin\PageController;
+use App\Http\Controllers\Admin\VideoController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/login/', [LoginController::class, 'index'])->name('login.page');
@@ -18,4 +19,6 @@ Route::group(['middleware' => ['auth:admin']], static function () {
         ->only('index', 'edit', 'update', 'destroy');
 
     Route::resource('images', ImageController::class, ['trailingSlashExcept' => 'show']);
+
+    Route::resource('videos', VideoController::class, ['trailingSlashExcept' => 'show']);
 });

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Actions\Admin\Image\DeleteImages;
+use App\Actions\Admin\Image\StoreImages;
 use App\Http\Controllers\Controller;
 use App\Models\Page;
 use Illuminate\Http\Request;
@@ -23,8 +25,6 @@ class ImageController extends Controller
 
     public function store(Request $request)
     {
-        $images = $request->get('text-images', []);
-        $removeImageIds = $request->get('delete_gallery', []);
         $page = Page::query()->where('url', self::URL)->first();
 
         if (! $page) {
@@ -33,20 +33,8 @@ class ImageController extends Controller
         }
 
         try {
-            if (! empty($images)) {
-                foreach ($images as $image) {
-                    $page->addMediaFromBase64($image)
-                        ->toMediaCollection('images');
-                }
-            }
-
-            if (! empty($removeImageIds)) {
-                foreach ($removeImageIds as $id => $deleted) {
-                    if ($deleted) {
-                        $page->media->where('id', $id)->first()->delete();
-                    }
-                }
-            }
+            (new StoreImages)->handle($page, $request->get('text-images', []));
+            (new DeleteImages)->handle($page, $request->get('delete_gallery', []));
 
             $request->session()->flash('message', 'Оновлено успішно!');
         } catch (\Throwable $exception) {

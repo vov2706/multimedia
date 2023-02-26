@@ -12,6 +12,9 @@
                 <x-admin.sidebar-nav-link :href="route('admin.images.index')" active="images.*" icon-class="fa-regular fa-image">
                     Зображення
                 </x-admin.sidebar-nav-link>
+                <x-admin.sidebar-nav-link :href="route('admin.videos.index')" active="videos.*" icon-class="fa-solid fa-video">
+                    Відео
+                </x-admin.sidebar-nav-link>
             </ul>
         </nav>
     </div>

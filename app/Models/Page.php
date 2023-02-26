@@ -29,6 +29,7 @@ class Page extends TemplateContentModel implements HasMedia
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('images');
+        $this->addMediaCollection('videos');
     }
 
     public function getLocaleFields(): array
