@@ -38,6 +38,9 @@
         }
       }
     },
+    props: {
+      images: array
+    },
     name: "PhotosComponent",
     components: { VueSlickCarousel },
   }
@@ -50,6 +53,7 @@
     max-height: 1000px;
     object-fit: contain;
   }
+
   .content {
     margin-right: auto;
     margin-left: auto;
