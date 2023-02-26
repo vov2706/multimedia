@@ -1,6 +1,8 @@
 <template>
-  <div class="content">
-    <VueSlickCarousel v-bind="settings">
+  <div class="content col-sm-12 col-md-9">
+    <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, nisi.</h1>
+    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda illum odit qui recusandae repudiandae tempore voluptatem! Aliquam aut doloremque fugit ipsam laudantium nulla officiis veniam.</h4>
+    <VueSlickCarousel v-bind="settings" class="carousel col-sm-10 col-md-7">
       <div v-for="(image, index) in images" :key="index" class="slickslide">
         <img class="slideimage" :src="image.url" alt="">
       </div>
@@ -18,9 +20,9 @@
     data() {
       return {
         images: [
-          {url: 'http://placehold.it/1200x800', alt: 'Image 1'},
-          {url: 'http://placehold.it/1200x800', alt: 'Image 2'},
-          {url: 'https://i.imgur.com/WcHGTSP.jpeg', alt: 'Image 3'},
+          {url: 'http://placehold.it/1200x800'},
+          {url: 'http://placehold.it/1200x800'},
+          {url: 'https://i.imgur.com/WcHGTSP.jpeg'},
         ],
         settings: {
           "dots": true,
@@ -45,17 +47,20 @@
   .slideimage {
     width: inherit;
     margin: auto;
+    max-height: 1000px;
     object-fit: contain;
   }
   .content {
-    margin: auto;
+    margin-right: auto;
+    margin-left: auto;
     padding: 40px;
-
-    max-width: 1300px;
-    max-height: 1200px;
-    background-color: greenyellow;
+    height: 100%;
+    background-color: whitesmoke;
   }
-   .slick-next:before {
-     color: black !important;
-   }
+
+  .carousel {
+    margin: auto;
+    max-height: 1000px;
+  }
+
 </style>

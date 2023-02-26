@@ -5344,14 +5344,11 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       images: [{
-        url: 'http://placehold.it/1200x800',
-        alt: 'Image 1'
+        url: 'http://placehold.it/1200x800'
       }, {
-        url: 'http://placehold.it/1200x800',
-        alt: 'Image 2'
+        url: 'http://placehold.it/1200x800'
       }, {
-        url: 'https://i.imgur.com/WcHGTSP.jpeg',
-        alt: 'Image 3'
+        url: 'https://i.imgur.com/WcHGTSP.jpeg'
       }],
       settings: {
         "dots": true,
@@ -5430,8 +5427,10 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "content"
-  }, [_c("VueSlickCarousel", _vm._b({}, "VueSlickCarousel", _vm.settings, false), _vm._l(_vm.images, function (image, index) {
+    staticClass: "content col-sm-12 col-md-9"
+  }, [_c("h1", [_vm._v("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, nisi.")]), _vm._v(" "), _c("h4", [_vm._v("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda illum odit qui recusandae repudiandae tempore voluptatem! Aliquam aut doloremque fugit ipsam laudantium nulla officiis veniam.")]), _vm._v(" "), _c("VueSlickCarousel", _vm._b({
+    staticClass: "carousel col-sm-10 col-md-7"
+  }, "VueSlickCarousel", _vm.settings, false), _vm._l(_vm.images, function (image, index) {
     return _c("div", {
       key: index,
       staticClass: "slickslide"
@@ -18464,7 +18463,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.slideimage[data-v-91c6b83e] {\n  width: inherit;\n  margin: auto;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.content[data-v-91c6b83e] {\n  margin: auto;\n  padding: 40px;\n\n  max-width: 1300px;\n  max-height: 1200px;\n  background-color: white;\n}\n.slick-next[data-v-91c6b83e]:before {\n   color: black !important;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.slideimage[data-v-91c6b83e] {\n  width: inherit;\n  margin: auto;\n  max-height: 1000px;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.content[data-v-91c6b83e] {\n  margin-right: auto;\n  margin-left: auto;\n  padding: 40px;\n  height: 100%;\n  background-color: whitesmoke;\n}\n.carousel[data-v-91c6b83e] {\n  margin: auto;\n  max-height: 1000px;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

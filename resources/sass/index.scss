@@ -1,7 +1,16 @@
 body {
   background-image: url("/../background.jpg");
 }
-
+.slick-next:before {
+  color: black !important;
+  font-size: 2.5rem !important;
+}
+.slick-prev:before {
+  position: relative;
+  color: black !important;
+  font-size: 2.5rem !important;
+  left: -20px;
+}
 .navbar {
   background-color: white;
   box-shadow: 0 0 5px 5px rgb(0 0 0 / 10%);
