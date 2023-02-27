@@ -5,6 +5,7 @@ module.exports = (mix) => {
     mix.setPublicPath(path.normalize('public/admin'));
 
     mix.js('resources/assets/admin/js/index.js', 'public/admin/js/index.js');
+    mix.js('resources/assets/admin/js/modules/video/index.js', 'public/admin/js/video.js').vue();
     mix.sass('resources/assets/admin/scss/index.scss', 'public/admin/css');
     mix.sass('resources/assets/admin/scss/text-pages/index.scss', 'public/admin/css/text-pages.css');
     const copy = [

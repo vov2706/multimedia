@@ -6,11 +6,13 @@ use Illuminate\View\Component;
 
 class Layout extends Component
 {
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
-     */
+    public bool $showIndexScripts = true;
+
+    public function __construct(bool $showIndexScripts = true)
+    {
+        $this->showIndexScripts = $showIndexScripts;
+    }
+
     public function render()
     {
         return view('components.layouts.admin.layout');

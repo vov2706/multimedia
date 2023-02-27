@@ -1,4 +1,4 @@
-<x-layouts.admin.layout>
+<x-layouts.admin.layout :show-index-scripts="false">
     <x-slot name="title">Редактор відео</x-slot>
     <x-slot name="description">Редактор відео</x-slot>
 
@@ -21,46 +21,20 @@
 
         <!-- Main content -->
         <section class="content container-fluid">
-            <div class="card card-outline card-primary col-md-12 col-xl-9">
+            <div class="card card-outline card-primary col-md-12 col-xl-6">
                 <div class="card-header">
                     <h3 class="card-title">
                         Галерея
                     </h3>
                 </div>
                 <div class="card-body">
-                    <form id="form" action="{{ route('admin.videos.store') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div class="row">
-                            <div class="col-xs-12 col-md-12">
-                                <div class="form-group">
-                                    <div class="show-block gallery-list-sortable custom--show-block">
-                                        <div class="add-img-block mb-20 ui-state-disabled">
-                                            <input type="file" multiple name="video_gallery[]"
-                                                   accept=".avi"
-                                                   class="file-input-gallery" style="display: none">
-                                            <div class="empty-photo size-photo gallery">
-                                                <label class="load-photo">
-                                                    <span class="old-text">
-                                                        <i class="fa fa-camera" aria-hidden="true"></i>
-                                                        Додати фото
-                                                    </span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+                    <div id="video"></div>
                 </div>
             </div>
-            <!-- Модальне вікно для підтвердження видалення зображення-->
-            <x-admin.modal
-                id="removeVideos"
-                text="Дану дію буде неможливо відмінити!"
-                actionButton="delete-btn-video">
-            </x-admin.modal>
         </section>
         <!-- /.content -->
     </div>
+    @push('scripts')
+        <script src="{{ mix('/js/video.js', 'admin') }}"></script>
+    @endpush
 </x-layouts.admin.layout>

@@ -15,9 +15,9 @@ const admin = require('./webpack.admin.js');
 if (process.env.PART === 'admin') {
     admin(mix);
 } else {
-    mix.js('resources/js/app.js', 'public/js')
+    mix.js('resources/assets/site/js/app.js', 'public/js')
         .vue()
-        .sass('resources/sass/app.scss', 'public/css');
+        .sass('resources/assets/site/sass/app.scss', 'public/css');
 }
 
 if (mix.inProduction()) {

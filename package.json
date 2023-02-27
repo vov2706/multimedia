@@ -37,10 +37,13 @@
         "admin-lte": "^3.2.0",
         "bootstrap-vue": "^2.23.1",
         "croppie": "^2.6.5",
+        "filepond": "^4.30.4",
+        "filepond-plugin-file-validate-type": "^1.2.8",
         "jquery": "^3.6.3",
         "js-cookie": "^3.0.1",
         "select2": "^4.0.13",
         "tinymce": "^5.10.2",
+        "vue-filepond": "^6.0.3",
         "vue-slick-carousel": "^1.0.6"
     }
 }

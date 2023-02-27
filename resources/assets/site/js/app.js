@@ -4,7 +4,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 import { NavbarPlugin, ButtonPlugin } from 'bootstrap-vue'
-require('./bootstrap');
+require('../../bootstrap');
 
 window.Vue = require('vue').default;
 

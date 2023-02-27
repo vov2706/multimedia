@@ -30,8 +30,11 @@
         @include('admin.main.footer')
     </div>
 
+    @if($showIndexScripts)
+        <script src="{{ mix('/js/index.js', 'admin') }}"></script>
+    @endif
+
     <script src="{{ mix('/js/vendor.js', 'admin') }}"></script>
-    <script src="{{ mix('/js/index.js', 'admin') }}"></script>
 
     <script src="/admin/plugins/tinymce/tinymce.min.js"></script>
 

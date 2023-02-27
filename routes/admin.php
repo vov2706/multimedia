@@ -18,7 +18,10 @@ Route::group(['middleware' => ['auth:admin']], static function () {
     Route::resource('pages', PageController::class, ['trailingSlashExcept' => 'show'])
         ->only('index', 'edit', 'update', 'destroy');
 
-    Route::resource('images', ImageController::class, ['trailingSlashExcept' => 'show']);
+    Route::resource('images', ImageController::class, ['trailingSlashExcept' => 'show'])
+        ->only('index', 'store');
 
-    Route::resource('videos', VideoController::class, ['trailingSlashExcept' => 'show']);
+    Route::get('/videos/show/', [VideoController::class, 'show'])->name('videos.show');
+    Route::resource('videos', VideoController::class, ['trailingSlashExcept' => 'show'])
+        ->only('index', 'store');
 });
