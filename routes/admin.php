@@ -13,15 +13,20 @@ Route::get('/logout/', [LoginController::class, 'logout'])->name('logout')->midd
 
 Route::group(['middleware' => ['auth:admin']], static function () {
 
+    /* ADMIN HOME PAGE */
     Route::get('/', IndexController::class)->name('index');
 
+    /* PAGES */
     Route::resource('pages', PageController::class, ['trailingSlashExcept' => 'show'])
         ->only('index', 'edit', 'update', 'destroy');
 
+    /* IMAGES */
     Route::resource('images', ImageController::class, ['trailingSlashExcept' => 'show'])
         ->only('index', 'store');
 
+    /* VIDEOS */
     Route::get('/videos/show/', [VideoController::class, 'show'])->name('videos.show');
+    Route::delete('/videos/', [VideoController::class, 'delete'])->name('videos.destroy');
     Route::resource('videos', VideoController::class, ['trailingSlashExcept' => 'show'])
         ->only('index', 'store');
 });
