@@ -1,5 +1,5 @@
-<div>
-    <footer class="footer col-sm-12 col-md-9" style="background: whitesmoke" >
+<div style="background-color: #e6e8d8;">
+    <footer class="footer col-sm-12 col-md-9">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -35,10 +35,4 @@
     </footer>
 </div>
 <style>
-    .footer {
-        margin-right: auto;
-        margin-left: auto;
-        padding: 40px;
-        background-color: whitesmoke;
-    }
 </style>

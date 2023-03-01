@@ -1,5 +1,5 @@
 <div>
-    <nav class="navbar navbar-expand-lg navbar-font">
+    <nav class="navbar navbar-expand-lg navbar-font w-100 position-fixed">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -31,4 +31,5 @@
             <a class="nav-link" href="#">ua</a>|<a class="nav-link" href="#">en</a>
         </div>
     </nav>
+    <img src="back1.jpg" class="overlay_image" alt=""/>
 </div>

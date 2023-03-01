@@ -19,11 +19,6 @@
   export default {
     data() {
       return {
-        images: [
-          {url: 'http://placehold.it/1200x800'},
-          {url: 'http://placehold.it/1200x800'},
-          {url: 'https://i.imgur.com/WcHGTSP.jpeg'},
-        ],
         settings: {
           "dots": true,
           "arrows": true,
@@ -39,7 +34,7 @@
       }
     },
     props: {
-      images: array
+      images: Array
     },
     name: "PhotosComponent",
     components: { VueSlickCarousel },
@@ -59,7 +54,6 @@
     margin-left: auto;
     padding: 40px;
     height: 100%;
-    background-color: whitesmoke;
   }
 
   .carousel {
