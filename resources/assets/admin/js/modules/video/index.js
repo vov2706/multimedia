@@ -1,4 +1,5 @@
 require('../../../../bootstrap');
+require('../../common/message');
 
 import Vue from 'vue';
 import Video from "./Video";

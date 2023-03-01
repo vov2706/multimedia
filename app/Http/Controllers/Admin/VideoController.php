@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Actions\Admin\Video\DeleteVideo;
+use App\Actions\Admin\Video\RetrieveFileForFilePond;
 use App\Actions\Admin\Video\StoreVideo;
-use App\Actions\Admin\Video\StoreVideoPreview;
 use App\Http\Controllers\Controller;
 use App\Models\Page;
 use Illuminate\Http\Request;
@@ -31,6 +31,10 @@ class VideoController extends Controller
             return response()->json(['error' => 'Файл відсутній.'], 400);
         }
 
+        $request->validate([
+           'video' => 'required|file'
+        ]);
+
         $page = $this->getPage();
 
         try {
@@ -42,9 +46,16 @@ class VideoController extends Controller
         return $media->file_name;
     }
 
-    public function show()
+    public function show(): \Illuminate\Http\JsonResponse
     {
-        return $this->getPage()->getMedia('videos')->sortBy('id')->toArray();
+        $videos = $this->getPage()->getMedia('videos')->sortBy('id');
+
+        $files = app(RetrieveFileForFilePond::class)->handle($videos);
+
+        return response()->json([
+            'videos' => $videos->toArray(),
+            'files' => $files->toArray()
+        ]);
     }
 
     public function delete()
