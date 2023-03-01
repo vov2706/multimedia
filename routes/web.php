@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return 'Hui';
+    return view('welcome');
 });
+
+Route::get('/home', function () {
+    return view('components.layouts.site.app');
+})->name('home');

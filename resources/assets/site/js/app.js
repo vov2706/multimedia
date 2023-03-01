@@ -21,6 +21,7 @@ window.Vue = require('vue').default;
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('photos-component', require('./components/PhotosComponent.vue').default);
+Vue.component('videos-component', require('./components/VideosComponent').default);
 Vue.use(NavbarPlugin)
 Vue.use(ButtonPlugin)
 
