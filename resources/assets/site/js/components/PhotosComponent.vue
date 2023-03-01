@@ -1,5 +1,5 @@
 <template>
-  <div class="content col-sm-12 col-md-9">
+  <div class="component_content col-sm-12 col-md-9">
     <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, nisi.</h1>
     <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda illum odit qui recusandae repudiandae tempore voluptatem! Aliquam aut doloremque fugit ipsam laudantium nulla officiis veniam.</h4>
     <VueSlickCarousel v-bind="settings" class="carousel col-sm-10 col-md-7">
@@ -42,23 +42,5 @@
 </script>
 
 <style scoped>
-  .slideimage {
-    width: inherit;
-    margin: auto;
-    max-height: 1000px;
-    object-fit: contain;
-  }
-
-  .content {
-    margin-right: auto;
-    margin-left: auto;
-    padding: 40px;
-    height: 100%;
-  }
-
-  .carousel {
-    margin: auto;
-    max-height: 1000px;
-  }
 
 </style>

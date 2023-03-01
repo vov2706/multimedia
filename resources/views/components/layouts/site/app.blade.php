@@ -24,12 +24,19 @@
             @if(false)
                 <example-component></example-component>
             @endif
-            @if(true)
+            @if(false)
                 <photos-component :images="[
             {url: 'http://placehold.it/1200x800'},
             {url: 'http://placehold.it/1200x800'},
             {url: 'https://i.imgur.com/WcHGTSP.jpeg'},
           ]"></photos-component>
+            @endif
+            @if(true)
+                <videos-component :videos="[
+            {original_url: 'file1.mp4', mime_type: 'video/mp4'},
+            {original_url: 'file1.mp4', mime_type: 'video/mp4'},
+            {original_url: 'file1.mp4', mime_type: 'video/mp4'},
+          ]"></videos-component>
             @endif
         </div>
 
