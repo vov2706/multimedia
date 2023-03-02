@@ -1,6 +1,6 @@
 <template>
     <div class="w-100">
-        <div class="d-flex mt-8 mb-24 w-100">
+        <div class="d-flex flex-wrap mt-8 mb-24 w-100">
             <div v-for="(video, index) in videos" :key="index" class="mx-4">
                 <video width="180" height="150" :src="video.original_url" />
             </div>
