@@ -14,7 +14,8 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
         "php-ffmpeg/php-ffmpeg": "^0.19.0",
-        "spatie/laravel-medialibrary": "^9.12"
+        "spatie/laravel-medialibrary": "^9.12",
+        "ext-json": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

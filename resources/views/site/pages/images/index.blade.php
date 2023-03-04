@@ -5,13 +5,7 @@
     <x-slot name="h1">{{ $page->h1 }}</x-slot>
     <x-slot name="h4">{{ $page->h2 }}</x-slot>
 
-    <photos-component :images="[
-        {url: 'http://placehold.it/1200x800'},
-        {url: 'http://placehold.it/1200x800'},
-        {url: 'https://i.imgur.com/WcHGTSP.jpeg'},
-      ]">
-
-    </photos-component>
+    <photos-component :images="{{ json_encode($images) }}" />
 
     <x-slot name="text">{{ $page->text }}</x-slot>
 

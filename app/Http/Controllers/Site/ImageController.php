@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Site;
 
+use App\Actions\Site\RetrievePageMedia;
 use App\Http\Controllers\Controller;
 use App\Models\Page;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -17,7 +18,8 @@ class ImageController extends Controller
     public function __invoke(Request $request)
     {
         $page = Page::active()->where('url', self::URL)->firstOrFail();
+        $images = (new RetrievePageMedia)->handle($page)->toArray();
 
-        return view('site.pages.images.index', compact('page'));
+        return view('site.pages.images.index', compact('page', 'images'));
     }
 }

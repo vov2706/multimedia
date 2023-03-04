@@ -87,6 +87,11 @@ return [
         'en',
     ],
 
+    // locales without ua
+    'locales_without_default' => [
+        'en',
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale

@@ -2,7 +2,7 @@
   <div class="component_content col-sm-12 col-md-9">
     <VueSlickCarousel v-bind="settings" class="carousel col-sm-10 col-md-7">
       <div v-for="(image, index) in images" :key="index" class="slickslide">
-        <img class="slideimage" :src="image.url" alt="">
+        <img class="slideimage" :src="image.url" :alt="image.alt">
       </div>
     </VueSlickCarousel>
   </div>
@@ -38,7 +38,3 @@
     components: { VueSlickCarousel },
   }
 </script>
-
-<style scoped>
-
-</style>

@@ -14,7 +14,10 @@
         </div>
 
         <div class="flex-row float-right w-auto d-flex" style="margin-right: 15px">
-            <a class="nav-link" href="#">ua</a>|<a class="nav-link" href="#">en</a>
+            @foreach($localeLinks as $locale => $link)
+                <a class="nav-link" href="{{ $link }}">{{ $locale }}</a>
+                @if(! $loop->last) | @endif
+            @endforeach
         </div>
     </nav>
     <img src="{{ asset('back1.jpg') }}" class="overlay_image" alt=""/>
