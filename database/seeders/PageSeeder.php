@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Page;
 use App\Models\PageContent;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Cache;
 
 class PageSeeder extends Seeder
 {
@@ -21,14 +22,14 @@ class PageSeeder extends Seeder
         $urls = [
             'about',
             'virtual-viewers-zone',
-            'gothic-treasures',
+            'games',
             'virtual-studio'
         ];
 
         $names = [
             'Про проект',
             'Віртуальна глядацька зона',
-            '«Готські скарби»',
+            'Ігри',
             'Віртуальна студія',
         ];
 
@@ -49,5 +50,7 @@ class PageSeeder extends Seeder
                 ]);
             }
         }
+
+        Cache::forget('site_pages');
     }
 }

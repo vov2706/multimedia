@@ -3,39 +3,39 @@ if(!!$('.tinymce')){
         selector: '.tinymce',
         setup: function(editor) {
             let formSended = 0;
-            editor.on('NodeChange', function (e) {
-                if (e.element.tagName === "IMG") {
-                    let content  = editor.getContent(),
-                        oldSrc   = String(e.element.attributes.src.nodeValue),
-                        fileName = String(e.element.attributes.title.nodeValue),
-                        uuid     = String(e.element.attributes.alt.nodeValue);
-
-                    if (oldSrc.replace(/\/w:[0-9]*\//, '/w:' + e.element.width + '/') !== oldSrc && !formSended) {
-
-                        formSended = 1;
-                        setTimeout(function(){ formSended = 0; }, 200);
-
-                        $.ajax({
-                            type: 'POST',
-                            url: '/wmpanel/change/loaded-image/',
-                            data: {
-                                '_token': $('input[name=_token]').val(),
-                                'newWidth': e.element.width,
-                                'fileName': fileName,
-                                'uuid': uuid
-                            },
-                            async: true,
-                            success: function (data) {
-                                content = content.replace(oldSrc, data['newSrc']);
-                                editor.setContent(content);
-                            },
-                            error: function (response) {
-                                console.log('error NodeChange');
-                            }
-                        });
-                    }
-                }
-            });
+            // editor.on('NodeChange', function (e) {
+            //     if (e.element.tagName === "IMG") {
+            //         let content  = editor.getContent(),
+            //             oldSrc   = String(e.element.attributes.src.nodeValue),
+            //             fileName = String(e.element.attributes.title.nodeValue),
+            //             uuid     = String(e.element.attributes.alt.nodeValue);
+            //
+            //         if (oldSrc.replace(/\/w:[0-9]*\//, '/w:' + e.element.width + '/') !== oldSrc && !formSended) {
+            //
+            //             formSended = 1;
+            //             setTimeout(function(){ formSended = 0; }, 200);
+            //
+            //             $.ajax({
+            //                 type: 'POST',
+            //                 url: '/wmpanel/change/loaded-image/',
+            //                 data: {
+            //                     '_token': $('input[name=_token]').val(),
+            //                     'newWidth': e.element.width,
+            //                     'fileName': fileName,
+            //                     'uuid': uuid
+            //                 },
+            //                 async: true,
+            //                 success: function (data) {
+            //                     content = content.replace(oldSrc, data['newSrc']);
+            //                     editor.setContent(content);
+            //                 },
+            //                 error: function (response) {
+            //                     console.log('error NodeChange');
+            //                 }
+            //             });
+            //         }
+            //     }
+            // });
         },
         language: 'uk',
         height: 600,
@@ -67,34 +67,34 @@ if(!!$('.tinymce')){
         convert_urls: false,
         statusbar: false,
         menubar: false,
-        file_picker_callback: function (cb, value, meta) {
-            let input = document.createElement('input');
-            input.setAttribute('type', 'file');
-            input.setAttribute('accept', 'image/*');
-
-            input.onchange = function () {
-                let file = this.files[0];
-                let reader = new FileReader();
-                reader.onload = function () {
-                    $.ajax({
-                        type: 'POST',
-                        url: '/wmpanel/load-image/',
-                        data: {
-                            '_token': $('input[name=_token]').val(),
-                            'base64': reader.result
-                        },
-                        async: true,
-                        success: function (data) {
-                            cb(data.link, {title: data.name, alt: data.uuid});
-                        },
-                        error: function (response) {
-                            cb(reader.result, {title: data.name, alt: data.uuid});
-                        }
-                    });
-                };
-                reader.readAsDataURL(file);
-            };
-            input.click();
-        },
+        // file_picker_callback: function (cb, value, meta) {
+        //     let input = document.createElement('input');
+        //     input.setAttribute('type', 'file');
+        //     input.setAttribute('accept', 'image/*');
+        //
+        //     input.onchange = function () {
+        //         let file = this.files[0];
+        //         let reader = new FileReader();
+        //         reader.onload = function () {
+        //             $.ajax({
+        //                 type: 'POST',
+        //                 url: '/wmpanel/load-image/',
+        //                 data: {
+        //                     '_token': $('input[name=_token]').val(),
+        //                     'base64': reader.result
+        //                 },
+        //                 async: true,
+        //                 success: function (data) {
+        //                     cb(data.link, {title: data.name, alt: data.uuid});
+        //                 },
+        //                 error: function (response) {
+        //                     cb(reader.result, {title: data.name, alt: data.uuid});
+        //                 }
+        //             });
+        //         };
+        //         reader.readAsDataURL(file);
+        //     };
+        //     input.click();
+        // },
     });
 }

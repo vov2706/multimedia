@@ -11,28 +11,28 @@ class TemplateContentModel extends Model
         return optional($this->contents->where('lang', get_locale())->first())->name ?? '';
     }
 
-    public function getH1Attribute(): string
+    public function getH1Attribute(): ?string
     {
-        return optional($this->contents->where('lang', get_locale())->first())->h1 ?? '';
+        return optional($this->contents->where('lang', get_locale())->first())->h1;
     }
 
-    public function getH2Attribute(): string
+    public function getH2Attribute(): ?string
     {
-        return optional($this->contents->where('lang', get_locale())->first())->h2 ?? '';
+        return optional($this->contents->where('lang', get_locale())->first())->h2;
     }
 
-    public function getTitleAttribute(): string
+    public function getTitleAttribute(): ?string
     {
-        return optional($this->contents->where('lang', get_locale())->first())->title ?? '';
+        return optional($this->contents->where('lang', get_locale())->first())->title;
     }
 
-    public function getDescriptionAttribute(): string
+    public function getDescriptionAttribute(): ?string
     {
-        return optional($this->contents->where('lang', get_locale())->first())->description ?? '';
+        return optional($this->contents->where('lang', get_locale())->first())->description;
     }
 
-    public function getTextAttribute(): string
+    public function getTextAttribute(): ?string
     {
-        return optional($this->contents->where('lang', get_locale())->first())->text ?? '';
+        return optional($this->contents->where('lang', get_locale())->first())->text;
     }
 }

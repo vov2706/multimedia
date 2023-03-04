@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Classes\TemplateContentModel;
+use Illuminate\Support\Facades\Cache;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
@@ -32,6 +33,11 @@ class Page extends TemplateContentModel implements HasMedia
         $this->addMediaCollection('videos');
     }
 
+    public function scopeActive($builder)
+    {
+        return $builder->where('active', 1);
+    }
+
     public function getLocaleFields(): array
     {
         return [
@@ -42,5 +48,32 @@ class Page extends TemplateContentModel implements HasMedia
             'description',
             'text',
         ];
+    }
+
+    public function getUrl()
+    {
+//        if () {
+//
+//        }
+
+        return route($this->url, [get_locale()]);
+    }
+
+    public static function sitePages()
+    {
+        return Cache::rememberForever('site_pages', function () {
+            return Page::with('contents')
+                ->active()
+                ->orderBy('sort')
+                ->get();
+        });
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::updated(fn() => Cache::forget('site_pages'));
+        static::deleted(fn() => Cache::forget('site_pages'));
     }
 }

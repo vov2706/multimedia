@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Site\ImageController;
+use App\Http\Controllers\Site\IndexController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +15,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::pattern('locale', 'ua|en');
+
+Route::prefix('/{locale?}')->group(function () {
+
+    /* ABOUT */
+    Route::get('/about/', ImageController::class)->name('about');
+
+    /* IMAGES */
+    Route::get('/virtual-studio/', ImageController::class)->name('virtual-studio');
+
+    /* VIDEOS */
+    Route::get('/virtual-viewers-zone/', ImageController::class)->name('virtual-viewers-zone');
+
+    /* GAMES */
+    Route::get('/games/', ImageController::class)->name('games');
+
+    /* HOME */
+    Route::get('/', IndexController::class)->name('home');
 });
 
-Route::get('/home', function () {
-    return view('components.layouts.site.app');
-})->name('home');
+Route::fallback(fn () => abort(404));

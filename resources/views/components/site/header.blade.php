@@ -5,25 +5,11 @@
         </button>
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
             <ul class="navbar-nav w-auto justify-content-center row">
-                <li class="nav-item col">
-                    <a class="nav-link active" aria-current="page" href="#">Головна</a>
-                </li>
-                <li class="nav-item col">
-                    <a class="nav-link" href="#">Контакти</a>
-                </li>
-                <li class="nav-item col">
-                    <a class="nav-link" href="#">Контакти</a>
-                </li>
-
-                <li class="nav-item dropdown col">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Про наші проекти
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Міжнародні</a></li>
-                        <li><a class="dropdown-item" href="#">В рамках вивчення дисциплін</a></li>
-                    </ul>
-                </li>
+                @foreach($pages as $page)
+                    <li class="nav-item col">
+                        <a class="nav-link active" aria-current="page" href="{{ $page->getUrl() }}">{{ $page->name }}</a>
+                    </li>
+                @endforeach
             </ul>
         </div>
 
@@ -31,5 +17,5 @@
             <a class="nav-link" href="#">ua</a>|<a class="nav-link" href="#">en</a>
         </div>
     </nav>
-    <img src="back1.jpg" class="overlay_image" alt=""/>
+    <img src="{{ asset('back1.jpg') }}" class="overlay_image" alt=""/>
 </div>

@@ -7,9 +7,9 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ $title }}</title>
 
-        <!-- Scripts -->
+        <meta name="description" content="{{ $description }}">
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -19,28 +19,37 @@
         <link rel="stylesheet" href="{{ asset(mix('css/app.css')) }}">
     </head>
     <body>
-        <x-site.header></x-site.header>
+        <x-site.header/>
+
         <div id="app">
-            @if(false)
-                <example-component></example-component>
-            @endif
-            @if(false)
-                <photos-component :images="[
-            {url: 'http://placehold.it/1200x800'},
-            {url: 'http://placehold.it/1200x800'},
-            {url: 'https://i.imgur.com/WcHGTSP.jpeg'},
-          ]"></photos-component>
-            @endif
-            @if(true)
-                <videos-component :videos="[
-            {original_url: 'file1.mp4', mime_type: 'video/mp4'},
-            {original_url: 'file1.mp4', mime_type: 'video/mp4'},
-            {original_url: 'file1.mp4', mime_type: 'video/mp4'},
-          ]"></videos-component>
-            @endif
+
+            {{-- Заголовок --}}
+            @isset($h1)
+                <h1>{{ $h1 }}</h1>
+            @endisset
+
+            {{-- Підзаголовок --}}
+            @isset($h4)
+                <h4>{{ $h4 }}</h4>
+            @endisset
+
+            {{ $slot }}
+{{--            @if(true)--}}
+{{--                <videos-component :videos="[--}}
+{{--            {original_url: 'file1.mp4', mime_type: 'video/mp4'},--}}
+{{--            {original_url: 'file1.mp4', mime_type: 'video/mp4'},--}}
+{{--            {original_url: 'file1.mp4', mime_type: 'video/mp4'},--}}
+{{--          ]"></videos-component>--}}
+{{--            @endif--}}
+
+            {{-- Текст --}}
+            @isset($text)
+                {!! $text !!}
+            @endisset
         </div>
 
-        <x-site.footer></x-site.footer>
+        <x-site.footer/>
+
         <script src="{{ asset(mix('js/app.js')) }}"></script>
     </body>
 </html>
