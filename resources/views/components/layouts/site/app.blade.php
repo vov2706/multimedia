@@ -22,16 +22,17 @@
         <x-site.header/>
 
         <div id="app">
+            <div class="header_text col-sm-12 col-md-9">
+                {{-- Заголовок --}}
+                @isset($h1)
+                    <h1>{{ $h1 }}</h1>
+                @endisset
 
-            {{-- Заголовок --}}
-            @isset($h1)
-                <h1>{{ $h1 }}</h1>
-            @endisset
-
-            {{-- Підзаголовок --}}
-            @isset($h4)
-                <h4>{{ $h4 }}</h4>
-            @endisset
+                {{-- Підзаголовок --}}
+                @isset($h4)
+                    <h4>{{ $h4 }}</h4>
+                @endisset
+            </div>
 
             {{ $slot }}
 {{--            @if(true)--}}

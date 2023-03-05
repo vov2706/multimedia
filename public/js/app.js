@@ -5381,7 +5381,7 @@ __webpack_require__.r(__webpack_exports__);
         "slidesToShow": 1,
         "slidesToScroll": 1,
         "adaptiveHeight": true,
-        "lazyLoad": true
+        "lazyLoad": 'ondemand'
       }
     };
   },
@@ -5463,7 +5463,8 @@ var render = function render() {
         id: "video" + index,
         controls: "",
         muted: "",
-        loop: ""
+        loop: "",
+        autoplay: ""
       },
       domProps: {
         muted: true

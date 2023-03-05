@@ -5,7 +5,7 @@
       class="carousel col-sm-10 col-md-7"
     >
       <div v-for="(video, index) in videos" class="slickslide">
-        <video :id="'video'+index" class="slideimage" controls muted loop :key="index">
+        <video :id="'video'+index" class="slideimage" controls muted loop autoplay :key="index">
           <source :src="video.url">
         </video>
       </div>
@@ -31,7 +31,7 @@
           "slidesToShow": 1,
           "slidesToScroll": 1,
           "adaptiveHeight": true,
-          "lazyLoad": true,
+          "lazyLoad": 'ondemand',
         }
       }
     },
