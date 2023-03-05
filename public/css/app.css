@@ -10910,3 +10910,11 @@ html, body {
   margin: auto;
   max-height: 1000px;
 }
+
+video::-webkit-media-controls-volume-slider {
+  display: none;
+}
+
+video::-webkit-media-controls-mute-button {
+  display: none;
+}

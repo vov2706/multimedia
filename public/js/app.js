@@ -5461,7 +5461,12 @@ var render = function render() {
       staticClass: "slideimage",
       attrs: {
         id: "video" + index,
-        controls: ""
+        controls: "",
+        muted: "",
+        loop: ""
+      },
+      domProps: {
+        muted: true
       }
     }, [_c("source", {
       attrs: {
