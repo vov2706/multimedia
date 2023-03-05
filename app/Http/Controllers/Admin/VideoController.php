@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Actions\Admin\Video\DeleteVideo;
-use App\Actions\Admin\Video\RetrieveFileForFilePond;
 use App\Actions\Admin\Video\StoreVideo;
 use App\Http\Controllers\Controller;
 use App\Models\Page;
 use Illuminate\Http\Request;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class VideoController extends Controller
 {
@@ -50,21 +49,16 @@ class VideoController extends Controller
     {
         $videos = $this->getPage()->getMedia('videos')->sortBy('id');
 
-        $files = app(RetrieveFileForFilePond::class)->handle($videos);
-
-        return response()->json([
-            'videos' => $videos->toArray(),
-            'files' => $files->toArray()
-        ]);
+        return response()->json(['videos' => $videos->toArray()]);
     }
 
-    public function delete()
+    public function destroy(Media $video)
     {
-        try {
-            $media = app(DeleteVideo::class)->handle(self::URL);
-        } catch (\Throwable $exception) {
-            return response()->json(['error' => $exception->getMessage()], $exception->getCode());
-        }
+        $video->delete();
+
+        $videos = $this->getPage()->getMedia('videos')->sortBy('id');
+
+        return response()->json(['videos' => $videos->toArray()]);
     }
 
     protected function getPage()
