@@ -7,7 +7,7 @@ use App\Models\Page;
 use Illuminate\Support\Collection;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class RetrievePageMedia
+class RetrievePageImages
 {
     public function handle(Page $page): Collection
     {

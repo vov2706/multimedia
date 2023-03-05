@@ -1,5 +1,5 @@
-<div style="background-color: #e6e8d8;">
-    <footer class="footer col-sm-12 col-md-9">
+<div class="footer">
+    <footer class="col-sm-12 col-md-9">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">

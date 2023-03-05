@@ -1,17 +1,29 @@
 body {
   //background-image: url("/../background.jpg");
+  display: flex;
+  flex-direction: column;
+  position: relative;
   background-color: whitesmoke;
 }
+
+html { overflow-y:scroll; }
+
+html,body {
+  height: 100%;
+}
+
 .slick-next:before {
   color: black !important;
   font-size: 2.5rem !important;
 }
+
 .slick-prev:before {
   position: relative;
   color: black !important;
   font-size: 2.5rem !important;
   left: -20px;
 }
+
 .navbar {
   background-color: white;
   box-shadow: 0 0 5px 5px rgb(0 0 0 / 10%);
@@ -50,9 +62,11 @@ body {
 }
 
 .footer {
-  margin-right: auto;
-  margin-left: auto;
+  bottom: 0;
+  width: 100%;
+  margin-top: auto;
   padding: 40px;
+  background-color: #e6e8d8;
 }
 
 .slideimage {

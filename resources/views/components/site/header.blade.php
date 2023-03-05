@@ -4,9 +4,9 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-            <ul class="navbar-nav w-auto justify-content-center row">
+            <ul class="navbar-nav justify-content-center" style="flex-wrap: nowrap">
                 @foreach($pages as $page)
-                    <li class="nav-item col">
+                    <li style="margin: 10px">
                         <a class="nav-link active" aria-current="page" href="{{ $page->getUrl() }}">{{ $page->name }}</a>
                     </li>
                 @endforeach

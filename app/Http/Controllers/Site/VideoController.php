@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Site;
 
-use App\Actions\Site\RetrievePageImages;
+use App\Actions\Site\RetrievePageVideos;
 use App\Http\Controllers\Controller;
 use App\Models\Page;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
-class ImageController extends Controller
+class VideoController extends Controller
 {
-    private const URL = 'virtual-studio';
+    private const URL = 'virtual-viewers-zone';
 
     /**
      * @throws ModelNotFoundException
@@ -18,8 +18,8 @@ class ImageController extends Controller
     public function __invoke(Request $request)
     {
         $page = Page::active()->where('url', self::URL)->firstOrFail();
-        $images = (new RetrievePageImages)->handle($page)->toArray();
+        $videos = (new RetrievePageVideos)->handle($page)->toArray();
 
-        return view('site.pages.images.index', compact('page', 'images'));
+        return view('site.pages.videos.index', compact('page', 'videos'));
     }
 }
