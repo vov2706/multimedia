@@ -26,7 +26,6 @@ Route::group(['middleware' => ['auth:admin']], static function () {
 
     /* VIDEOS */
     Route::get('/videos/show/', [VideoController::class, 'show'])->name('videos.show');
-    Route::delete('/videos/', [VideoController::class, 'delete'])->name('videos.destroy');
     Route::resource('videos', VideoController::class, ['trailingSlashExcept' => 'show'])
-        ->only('index', 'store');
+        ->only('index', 'store', 'destroy');
 });
