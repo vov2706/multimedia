@@ -40,7 +40,7 @@ class PageSeeder extends Seeder
         }
 
         foreach (config('app.locales') as $locale) {
-            $allPages = Page::query()->whereIn('url', $urls)->get();
+            $allPages = Page::query()->whereIn('url', $urls)->orderBy('id')->get();
 
             foreach ($allPages as $index => $page) {
                 PageContent::query()->create([
