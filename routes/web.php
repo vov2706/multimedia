@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Site\AboutController;
 use App\Http\Controllers\Site\ImageController;
 use App\Http\Controllers\Site\IndexController;
 use App\Http\Controllers\Site\VideoController;
@@ -21,7 +22,7 @@ Route::pattern('locale', 'ua|en');
 Route::prefix('/{locale?}')->group(function () {
 
     /* ABOUT */
-    Route::get('/about/', ImageController::class)->name('about');
+    Route::get('/about/', AboutController::class)->name('about');
 
     /* IMAGES */
     Route::get('/virtual-studio/', ImageController::class)->name('virtual-studio');

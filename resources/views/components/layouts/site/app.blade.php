@@ -29,24 +29,16 @@
                 @endisset
 
                 {{-- Підзаголовок --}}
-                @isset($h4)
-                    <h4>{{ $h4 }}</h4>
+                @isset($h2)
+                    <h2>{{ $h2 }}</h2>
                 @endisset
             </div>
-
+            <div class="header_text col-sm-12 col-md-9" style="font-size: 1.4em;">
+                @isset($text)
+                    {!! $text !!}
+                @endisset
+            </div>
             {{ $slot }}
-{{--            @if(true)--}}
-{{--                <videos-component :videos="[--}}
-{{--            {original_url: 'file1.mp4', mime_type: 'video/mp4'},--}}
-{{--            {original_url: 'file1.mp4', mime_type: 'video/mp4'},--}}
-{{--            {original_url: 'file1.mp4', mime_type: 'video/mp4'},--}}
-{{--          ]"></videos-component>--}}
-{{--            @endif--}}
-
-            {{-- Текст --}}
-            @isset($text)
-                {!! $text !!}
-            @endisset
         </div>
 
         <x-site.footer/>
