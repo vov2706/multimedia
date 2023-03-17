@@ -66,7 +66,8 @@ html,body {
   width: 100%;
   margin-top: auto;
   padding: 40px;
-  background-color: #e6e8d8;
+  background-color: white;
+  box-shadow: 0 0 3px 3px rgb(0 0 0 / 10%);
 }
 
 .slideimage {
@@ -118,6 +119,11 @@ html,body {
   color: rgba(255, 255, 255, 0.8);
   line-height: 70px;
   transition: transform 0.5s ease;
+}
+
+.logo {
+  max-width: 150px;
+  margin-top: -5px;
 }
 
 video::-webkit-media-controls-volume-slider {
