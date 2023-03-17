@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Site\AboutController;
+use App\Http\Controllers\Site\GameController;
 use App\Http\Controllers\Site\ImageController;
 use App\Http\Controllers\Site\IndexController;
 use App\Http\Controllers\Site\VideoController;
@@ -31,7 +32,7 @@ Route::prefix('/{locale?}')->group(function () {
     Route::get('/virtual-viewers-zone/', VideoController::class)->name('virtual-viewers-zone');
 
     /* GAMES */
-    Route::get('/games/', ImageController::class)->name('games');
+    Route::get('/games/', GameController::class)->name('games');
 
     /* HOME */
     Route::get('/', IndexController::class)->name('home');

@@ -10916,6 +10916,33 @@ html, body {
   max-height: 1000px;
 }
 
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.card:hover .card-img-overlay {
+  opacity: 1;
+}
+
+.fa-play-circle {
+  font-size: 60px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 70px;
+  transition: transform 0.5s ease;
+}
+
 video::-webkit-media-controls-volume-slider {
   display: none;
 }
