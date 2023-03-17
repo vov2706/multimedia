@@ -22,7 +22,7 @@
         <x-site.header/>
 
         <div @class([
-            "header_text col-sm-12 col-md-9 text-center",
+            "header_text col--12 col-md-9 text-center",
             "mt-5" => current_route_name() !== 'games',
         ])>
             {{-- Заголовок --}}
