@@ -21,24 +21,29 @@
     <body>
         <x-site.header/>
 
-        <div id="app">
-            <div class="header_text col-sm-12 col-md-9">
-                {{-- Заголовок --}}
-                @isset($h1)
-                    <h1>{{ $h1 }}</h1>
-                @endisset
+        <div @class([
+            "header_text col-sm-12 col-md-9 text-center",
+            "mt-5" => current_route_name() !== 'games',
+        ])>
+            {{-- Заголовок --}}
+            @isset($h1)
+                <h1>{{ $h1 }}</h1>
+            @endisset
 
-                {{-- Підзаголовок --}}
-                @isset($h2)
-                    <h2>{{ $h2 }}</h2>
-                @endisset
-            </div>
-            <div class="header_text col-sm-12 col-md-9" style="font-size: 1.4em;">
-                @isset($text)
-                    {!! $text !!}
-                @endisset
-            </div>
+            {{-- Підзаголовок --}}
+            @isset($h2)
+                <h2>{{ $h2 }}</h2>
+            @endisset
+        </div>
+
+        <div id="app">
             {{ $slot }}
+        </div>
+
+        <div class="header_text col-sm-12 col-md-9" style="font-size: 1.4em;">
+            @isset($text)
+                {!! $text !!}
+            @endisset
         </div>
 
         <x-site.footer/>

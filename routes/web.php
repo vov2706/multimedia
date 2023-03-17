@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Site\AboutController;
 use App\Http\Controllers\Site\GameController;
 use App\Http\Controllers\Site\ImageController;
 use App\Http\Controllers\Site\IndexController;
@@ -22,8 +21,8 @@ Route::pattern('locale', 'ua|en');
 
 Route::prefix('/{locale?}')->group(function () {
 
-    /* ABOUT */
-    Route::get('/about/', AboutController::class)->name('about');
+    /* HOME */
+    Route::get('/', IndexController::class)->name('home');
 
     /* IMAGES */
     Route::get('/virtual-studio/', ImageController::class)->name('virtual-studio');
@@ -33,9 +32,6 @@ Route::prefix('/{locale?}')->group(function () {
 
     /* GAMES */
     Route::get('/games/', GameController::class)->name('games');
-
-    /* HOME */
-    Route::get('/', IndexController::class)->name('home');
 });
 
 Route::fallback(fn () => abort(404));

@@ -20,17 +20,25 @@ class PageSeeder extends Seeder
         PageContent::query()->truncate();
 
         $urls = [
-            'about',
+            'index',
             'virtual-viewers-zone',
             'games',
             'virtual-studio'
         ];
 
         $names = [
-            'Про проект',
-            'Віртуальна глядацька зона',
-            'Ігри',
-            'Віртуальна студія',
+            'ua' => [
+                'Головна',
+                'Віртуальна глядацька зона',
+                'Ігри',
+                'Віртуальна студія'
+            ],
+            'en' => [
+                'Home',
+                'Virtual Viewers Zone',
+                'Games',
+                'Virtual Studio'
+            ],
         ];
 
         foreach ($urls as $url) {
@@ -46,7 +54,7 @@ class PageSeeder extends Seeder
                 PageContent::query()->create([
                     'page_id' => $page->id,
                     'lang' => $locale,
-                    'name' => $names[$index],
+                    'name' => $names[$locale][$index],
                 ]);
             }
         }

@@ -13,9 +13,6 @@
                         Відео для сторінки "{{ $page->name }}"
                     </h1>
                 </div>
-                <button type="submit" form="form" class="btn btn-success saved">
-                    <i class="fa fa-save"></i>
-                </button>
             </div>
         </section>
 

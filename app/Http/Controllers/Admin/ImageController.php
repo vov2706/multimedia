@@ -25,7 +25,7 @@ class ImageController extends Controller
 
     public function store(Request $request)
     {
-        $page = Page::query()->where('url', self::URL)->first();
+        $page = Page::where('url', self::URL)->first();
 
         if (! $page) {
             return redirect(route('admin.index'))

@@ -25,7 +25,6 @@ class VideoController extends Controller
 
     public function store(Request $request)
     {
-        // validate the incoming file
         if (! $request->hasFile('video')) {
             return response()->json(['error' => 'Файл відсутній.'], 400);
         }

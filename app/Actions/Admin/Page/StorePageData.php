@@ -13,7 +13,9 @@ class StorePageData
             throw new \RuntimeException('Дані про сторінку відсутні!');
         }
 
-        $page->update(['active' => (int) $data['active']]);
+        if (isset($data['active'])) {
+            $page->update(['active' => (int) $data['active']]);
+        }
 
         foreach (config('app.locales') as $locale) {
             $content = PageContent::firstOrNew(

@@ -15,6 +15,8 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
+        Admin::query()->truncate();
+
         Admin::query()->insert([
             [
                 'name' => 'Вова Євсюк',

@@ -50,13 +50,11 @@ class Page extends TemplateContentModel implements HasMedia
         ];
     }
 
-    public function getUrl()
+    public function getUrl(): string
     {
-//        if () {
-//
-//        }
+        $url = $this->url === 'index' ? 'home' : $this->url;
 
-        return route($this->url, [get_locale()]);
+        return route($url, [get_locale()]);
     }
 
     public static function sitePages()

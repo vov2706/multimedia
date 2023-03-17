@@ -1,6 +1,9 @@
 <x-layouts.site.app>
-    <x-slot name="title">Головна</x-slot>
-    <x-slot name="description">Головна</x-slot>
+    <x-slot name="title">{{ $page->title ?? trans('interface.titles.about-project') }}</x-slot>
+    <x-slot name="description">{{ $page->description ?? trans('interface.titles.about-project') }}</x-slot>
 
-    <h1 class="text-center">Головна</h1>
+    <x-slot name="h1">{{ $page->h1 }}</x-slot>
+    <x-slot name="h2">{{ $page->h2 }}</x-slot>
+
+    <x-slot name="text">{!! $page->text !!}</x-slot>
 </x-layouts.site.app>

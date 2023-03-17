@@ -5,7 +5,7 @@
       class="carousel col-sm-10 col-md-7"
     >
       <div v-for="(video, index) in videos" class="slickslide">
-        <video :id="'video'+index" class="slideimage" controls muted loop autoplay :key="index">
+        <video :id="'video'+index" class="slideimage" muted loop autoplay :key="index" width="700" height="400">
           <source :src="video.url">
         </video>
       </div>

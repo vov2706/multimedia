@@ -22,6 +22,9 @@
                 <button type="submit" form="form" class="btn btn-success saved">
                     <i class="fa fa-save"></i>
                 </button>
+                <a href="{{ $item->getUrl() }}" target="_blank" class="btn btn-info position-fixed" style="right: 17%;">
+                    <i class="fa fa-eye"></i>
+                </a>
             </div>
         </section>
 
@@ -59,19 +62,21 @@
                                             @endforeach
                                             @php set_locale(config('app.locale')); @endphp
                                         </div>
-                                        <div class="form-group mb-0 col-12 text-right">
-                                            <div class="custom-control custom-checkbox d-inline-block">
-                                                <input type="hidden" name="active" value="0">
-                                                <input
-                                                    type="checkbox"
-                                                    id="viewed"
-                                                    name="active"
-                                                    class="custom-control-input"
-                                                    @if($item->active) checked @endif
-                                                    value="1">
-                                                <label for="viewed" class="custom-control-label">Відображати</label>
+                                        @if($item->url !== 'index')
+                                            <div class="form-group mb-0 col-12 text-right">
+                                                <div class="custom-control custom-checkbox d-inline-block">
+                                                    <input type="hidden" name="active" value="0">
+                                                    <input
+                                                        type="checkbox"
+                                                        id="viewed"
+                                                        name="active"
+                                                        class="custom-control-input"
+                                                        @if($item->active) checked @endif
+                                                        value="1">
+                                                    <label for="viewed" class="custom-control-label">Відображати</label>
+                                                </div>
                                             </div>
-                                        </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
