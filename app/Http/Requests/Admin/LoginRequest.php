@@ -11,7 +11,6 @@ class LoginRequest extends FormRequest
         return true;
     }
 
-
     public function rules(): array
     {
         return [
@@ -20,7 +19,7 @@ class LoginRequest extends FormRequest
         ];
     }
 
-    public function messages()
+    public function messages(): array
     {
         return [
             'email.required' => "Email є обов'язковим полем до заповнення",
